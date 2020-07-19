@@ -1,0 +1,17 @@
+Algoritmo "semnome"
+Var
+A, B, C: vetor[1..5] de real
+i: inteiro
+
+Inicio
+
+Para i de 1 ate 5 faca
+     escreva ("Digite o valor", i," de A:")
+     leia (A[i])
+     escreva ("Digite o valor", i," de B:")
+     leia (B[i])
+     C[i] <- (A[i] - B[i])
+     Escreval ("A subtração de A - B é:", C[i])
+Fimpara
+
+Fimalgoritmo

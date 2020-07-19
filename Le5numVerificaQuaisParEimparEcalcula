@@ -1,0 +1,21 @@
+Algoritmo "semnome"
+Var
+VetorA, VetorB: vetor[1..5] de real
+i, ParImpar: inteiro
+Inicio
+para i de 1 ate 5 faca
+     Escreva ("Digite o valor", i, ":")
+     leia (VetorA[i])
+     ParImpar <- (VetorA[i] % 2)
+     Se ParImpar = 0 entao
+        VetorB[i] <- (VetorA[i] * 5)
+     Senao
+        VetorB[i] <- (VetorA[i] + 5)
+     fimse
+fimpara
+i <- 1
+para i de 1 ate 5 faca
+     Escreval (VetorB[i])
+fimpara
+
+Fimalgoritmo

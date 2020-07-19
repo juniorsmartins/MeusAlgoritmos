@@ -1,0 +1,19 @@
+Algoritmo "semnome"
+// Disciplina: Laboratório Algoritmo
+// Professor: Fahim Rihbane
+// Descrição: Digita 10 números com vetor e soma todos eles
+// Autor(a): Junior Martins
+// Data atual: 25/05/2020
+Var
+Soma, contador: inteiro
+NumV: vetor [1..10] de inteiro
+
+Inicio
+
+Para contador de 1 ate 10 faca
+     Escreval ("Digite o valor do número", contador, ":")
+     Leia (NumV[contador])
+     Soma <- (Soma + NumV[contador])
+Fimpara
+Escreva ("A soma dos número é:", Soma)
+Fimalgoritmo

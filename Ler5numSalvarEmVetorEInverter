@@ -1,0 +1,29 @@
+Algoritmo "semnome"
+// Descrição: Treino de Matriz - Inverte ordem dos dados do vetor
+// Autor(a): Junior Martins
+// Data atual: 19/05/2020
+Var
+// Seção de Declarações das variáveis
+Contador, Coringa: inteiro
+NumVet: vetor [1..5] de inteiro
+
+Inicio
+// Entrada dos números
+Para Contador de 1 ate 5 passo 1 faca
+     Escreva ("Digite o número", Contador,":")
+     Leia (NumVet[Contador])
+Fimpara
+
+// Alterar Ordem
+Coringa <- NumVet[5]
+NumVet[5] <- NumVet[1]
+NumVet[1] <- Coringa
+Coringa <- NumVet[4]
+NumVet[4] <- NumVet[2]
+NumVet[2] <- Coringa
+
+Para Contador de 1 ate 5 passo 1 faca
+     Escreval (NumVet[Contador])
+Fimpara
+
+Fimalgoritmo
