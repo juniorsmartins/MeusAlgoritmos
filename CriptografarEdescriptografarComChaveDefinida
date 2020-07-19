@@ -1,0 +1,220 @@
+Algoritmo "Criptografia"
+Var
+Frase: caractere;
+Linha, Coluna, Contador, Repete, MenuOpcao, TecleEnter: Inteiro;
+MatrizFrase: vetor[1..2,1..10] de caractere;
+MatrizFraseNumerada: vetor[1..2,1..10] de inteiro;
+MatrizCriptada: vetor[1..2,1..10] de inteiro;
+MatrizChave: vetor[1..2,1..10] de inteiro;
+MatrizInversa, MatrizMensagemNumerada, MatrizMensagemCriptada: vetor[1..2,1..10] de Real;
+MatrizMensagemDescriptada: vetor[1..2,1..10] de caractere;
+Inicio
+
+Repita
+
+   Limpatela
+   Escreval ("***************************************")
+   Escreval ("****************  MENU  ***************")
+   Escreval ("***************************************")
+   Escreval ("***************************************")
+   Escreval ("*********  Criptografar - 1  **********")
+   Escreval ("********  Descriptografar - 2  ********")
+   Escreval ("*************  Sair - 3  **************")
+   Escreval ("***************************************")
+   Escreva ("**********  Qual opção? ")
+   Leia (MenuOpcao)
+   Escolha (MenuOpcao)
+      Caso 1
+         Para Linha de 1 ate 2 faca
+            Para Coluna de 1 ate 10 faca
+               MatrizCriptada[Linha,Coluna] <- 0
+            Fimpara
+         Fimpara
+         Limpatela
+         Escreva ("Qual frase será criptografada?")
+         Leia (Frase)
+         MatrizChave[1,1] <- 4
+         MatrizChave[1,2] <- 2
+         MatrizChave[2,1] <- 5
+         MatrizChave[2,2] <- 3
+         Contador <- 0
+         Para Linha de 1 ate 2 faca
+            Para Coluna de 1 ate 10 faca
+               Contador <- Contador + 1
+               MatrizFrase[Linha,Coluna] <- Copia(Frase;Contador;1)
+               Escolha (MatrizFrase[Linha,Coluna])
+                  Caso "A"
+                     MatrizFraseNumerada[Linha,Coluna] <- 1
+                  Caso "B"
+                     MatrizFraseNumerada[Linha,Coluna] <- 2
+                  Caso "C"
+                     MatrizFraseNumerada[Linha,Coluna] <- 3
+                  Caso "D"
+                     MatrizFraseNumerada[Linha,Coluna] <- 4
+                  Caso "E"
+                     MatrizFraseNumerada[Linha,Coluna] <- 5
+                  Caso "F"
+                     MatrizFraseNumerada[Linha,Coluna] <- 6
+                  Caso "G"
+                     MatrizFraseNumerada[Linha,Coluna] <- 7
+                  Caso "H"
+                     MatrizFraseNumerada[Linha,Coluna] <- 8
+                  Caso "I"
+                     MatrizFraseNumerada[Linha,Coluna] <- 9
+                  Caso "J"
+                     MatrizFraseNumerada[Linha,Coluna] <- 10
+                  Caso "L"
+                     MatrizFraseNumerada[Linha,Coluna] <- 11
+                  Caso "M"
+                     MatrizFraseNumerada[Linha,Coluna] <- 12
+                  Caso "N"
+                     MatrizFraseNumerada[Linha,Coluna] <- 13
+                  Caso "O"
+                     MatrizFraseNumerada[Linha,Coluna] <- 14
+                  Caso "P"
+                     MatrizFraseNumerada[Linha,Coluna] <- 15
+                  Caso "Q"
+                     MatrizFraseNumerada[Linha,Coluna] <- 16
+                  Caso "R"
+                     MatrizFraseNumerada[Linha,Coluna] <- 17
+                  Caso "S"
+                     MatrizFraseNumerada[Linha,Coluna] <- 18
+                  Caso "T"
+                     MatrizFraseNumerada[Linha,Coluna] <- 19
+                  Caso "U"
+                     MatrizFraseNumerada[Linha,Coluna] <- 20
+                  Caso "V"
+                     MatrizFraseNumerada[Linha,Coluna] <- 21
+                  Caso "X"
+                     MatrizFraseNumerada[Linha,Coluna] <- 22
+                  Caso "Z"
+                     MatrizFraseNumerada[Linha,Coluna] <- 23
+                  Outrocaso
+                     MatrizFraseNumerada[Linha,Coluna] <- 24
+               FimEscolha
+            Fimpara
+         Fimpara
+         Para Linha de 1 ate 2 faca
+            Para Coluna de 1 ate 10 faca
+               Para Repete de 1 ate 2 faca
+                  MatrizCriptada[Linha,Coluna] <- (MatrizCriptada[Linha,Coluna] + MatrizChave[Linha,Repete] * MatrizFraseNumerada[Repete,Coluna])
+               Fimpara
+            Fimpara
+         Fimpara
+         Limpatela
+         Escreval ("A mensagem é:")
+         Para Linha de 1 ate 2 faca
+           Para Coluna de 1 ate 10 faca
+              Escreva (MatrizFrase[Linha,Coluna])
+           Fimpara
+         Fimpara
+         Escreval (" ")
+         Escreval (" ")
+         Escreval ("A mensagem criptografada é:")
+         Para Linha de 1 ate 2 faca
+            Escreval ("")
+            Para Coluna de 1 ate 10 faca
+               Escreva (MatrizCriptada[Linha,Coluna])
+            Fimpara
+         Fimpara
+         Escreval ("")
+         Escreval ("")
+         Escreva ("Tecle enter para continuar")
+         Leia (TecleEnter)
+         
+      Caso 2
+         Para Linha de 1 ate 2 faca
+            Para Coluna de 1 ate 10 faca
+               MatrizMensagemNumerada[Linha,Coluna] <- 0
+            Fimpara
+         Fimpara
+         MatrizInversa[1,1] <- 1.5
+         MatrizInversa[1,2] <- (-1)
+         MatrizInversa[2,1] <- (-2.5)
+         MatrizInversa[2,2] <- 2
+         Limpatela
+         Escreval ("Qual mensagem será descriptografada?")
+         Para Linha de 1 ate 2 faca
+            Para Coluna de 1 ate 10 faca
+               Leia (MatrizMensagemCriptada[Linha,Coluna])
+            Fimpara
+         Fimpara
+         Para Linha de 1 ate 2 faca
+            Para Coluna de 1 ate 10 faca
+               Para Repete de 1 ate 2 faca
+                  MatrizMensagemNumerada[Linha,Coluna] <- (MatrizMensagemNumerada[Linha,Coluna] + MatrizInversa[Linha,Repete] * MatrizMensagemCriptada[Repete,Coluna])
+               Fimpara
+            Fimpara
+         Fimpara
+         Para Linha de 1 ate 2 faca
+            Para Coluna de 1 ate 10 faca
+               Escolha (MatrizMensagemNumerada[Linha,Coluna])
+                  Caso 1
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "A"
+                  Caso 2
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "B"
+                  Caso 3
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "C"
+                  Caso 4
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "D"
+                  Caso 5
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "E"
+                  Caso 6
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "F"
+                  Caso 7
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "G"
+                  Caso 8
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "H"
+                  Caso 9
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "I"
+                  Caso 10
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "J"
+                  Caso 11
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "L"
+                  Caso 12
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "M"
+                  Caso 13
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "N"
+                  Caso 14
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "O"
+                  Caso 15
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "P"
+                  Caso 16
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "Q"
+                  Caso 17
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "R"
+                  Caso 18
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "S"
+                  Caso 19
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "T"
+                  Caso 20
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "U"
+                  Caso 21
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "V"
+                  Caso 22
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "X"
+                  Caso 23
+                     MatrizMensagemDescriptada[Linha,Coluna] <- "Z"
+                  Outrocaso
+                     MatrizMensagemDescriptada[Linha,Coluna] <- " "
+               Fimescolha
+            Fimpara
+         Fimpara
+         Limpatela
+         Escreva (" ")
+         Escreva ("A mensagem descriptografada é: ")
+         Para Linha de 1 ate 2 faca
+            Para Coluna de 1 ate 10 faca
+               Escreva (MatrizMensagemDescriptada[Linha,Coluna])
+            Fimpara
+         Fimpara
+         Escreval (" ")
+         Escreva ("Tecle enter para continuar")
+         Leia (TecleEnter)
+      Caso 3
+         Limpatela
+         Interrompa
+   FimEscolha
+
+Ate (MenuOpcao = 3)
+Fimalgoritmo

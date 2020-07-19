@@ -1,0 +1,25 @@
+
+Algoritmo "semnome"
+Var
+BD: Vetor[1..5,1..5] de Inteiro;
+Linha, Coluna, Soma: Inteiro;
+Inicio
+Para Linha de 1 ate 5 faca
+   Para Coluna de 1 ate 5 faca
+      Escreval ("Digite o valor do endereço", Linha, Coluna, " da matriz:")
+      Leia (BD[Linha,Coluna])
+   Fimpara
+Fimpara
+Para Linha de 1 ate 5 faca
+   Para Coluna de 1 ate 5 faca
+      Se (Linha > Coluna) entao
+         Soma <- (Soma + BD[Linha,Coluna])
+      Fimse
+   Fimpara
+Fimpara
+Se (Soma = 0) entao
+   Escreval ("A Matriz é Triangular Superior")
+Senao
+   Escreval ("A Matriz não é Triangular Superior")
+Fimse
+Fimalgoritmo

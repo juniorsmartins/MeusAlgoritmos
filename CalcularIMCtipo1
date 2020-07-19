@@ -1,0 +1,33 @@
+Algoritmo "CalculoIMC1"
+// Algoritmo para calcular o IMC - Peso ideal
+Var
+Peso, Altura, IMC: Real;
+Inicio
+      Escreva ("Qual teu peso?")
+      Leia (Peso)
+      Escreva ("Qual tua altura?")
+      Leia (Altura)
+      IMC <- Peso / (Altura ^ 2)
+      Escreval ("Teu IMC é:", IMC:5:2)
+      Se (IMC < 17) entao
+         Escreva ("Muito abaixo do peso")
+      Fimse
+      Se (IMC >= 17) e (IMC < 18.5) entao
+         Escreva ("Abaixo do peso")
+      Fimse
+      Se (IMC >= 18.5) e (IMC < 25) entao
+         Escreva ("Peso ideal")
+      Fimse
+      Se (IMC >= 25) e (IMC < 30) entao
+         Escreva ("Sobrepeso")
+      Fimse
+      Se (IMC >= 30) e (IMC < 35) entao
+         Escreva ("Obesidade")
+      Fimse
+      Se (IMC >= 35) e (IMC < 40) entao
+         Escreva ("Obesidade severa")
+      Fimse
+      Se (IMC >= 40) entao
+         Escreva ("Obesidade mórbida")
+      Fimse
+Fimalgoritmo

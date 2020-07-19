@@ -1,0 +1,46 @@
+Algoritmo "SomaIndiceMatrizesComFuncao"
+// Atividade de sala de aula
+// Criar duas matrizes 2x5 e uma terceira 2x5 com o valor da soma dos elementos de mesmo índice.
+// Autor: Junior Martins
+// Acrescentar função para treinar
+Var
+// Declaração das três matrizes
+MatrizA, MatrizB, MatrizC: vetor [1..2,1..5] de Real;
+// Declaração dos contadores
+Linha, Coluna: Inteiro;
+
+// Declaração de Função
+   Funcao Soma_MatrizAB(): Real;
+   Inicio
+   Para Linha de 1 ate 2 faca
+      Para Coluna de 1 ate 5 faca
+         MatrizC[Linha,Coluna] <- (MatrizA[Linha,Coluna] + MatrizB[Linha,Coluna])
+      Fimpara
+   Fimpara
+   Retorne (MatrizC[Linha,Coluna])
+   Fimfuncao
+
+Inicio
+// Entrada de dados da Matriz A
+Para Linha de 1 ate 2 faca
+   Para Coluna de 1 ate 5 faca
+      Escreval ("Digite o valor da matriz A", Linha, " x", Coluna," :")
+      Leia (MatrizA[Linha,Coluna])
+   Fimpara
+Fimpara
+// Entrada de dados da Matriz B
+Para Linha de 1 ate 2 faca
+   Para Coluna de 1 ate 5 faca
+      Escreval ("Digite o valor da matriz B", Linha, " x", Coluna," :")
+      Leia (MatrizB[Linha,Coluna])
+   Fimpara
+Fimpara
+// Função é chamada para multiplicar Matrizes A e B
+MatrizC[Linha,Coluna] <- Soma_MatrizAB()
+Para Linha de 1 ate 2 faca
+   Para Coluna de 1 ate 5 faca
+      Escreva (MatrizC[Linha,Coluna])
+   Fimpara
+Fimpara
+
+Fimalgoritmo

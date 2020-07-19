@@ -1,0 +1,871 @@
+Algoritmo "ControleEstoqueJR"
+// Disciplina: Laboratório Algoritmos e Programação I e Fundamentos de Algoritmos e
+Programação
+// Professores: Fahim Elias Rihbane e Douglas Willer Vilela
+// Descrição do Programa: Controle de vendas e de estoque de uma Mercearia de Frutas
+// Descrição do Negócio: Mercearia de Frutas do Seu João - Comércio de frutas
+// Autor(a): Junior Martins
+// Data de Início: 01/06/2020
+// Data de Finalização: 05/06/2020
+Var
+// Seção de Declarações das variáveis
+// Menu
+Opcao1_Menu: Inteiro;
+// Cadastrar
+Opcao1_Cadastrar: Inteiro;
+Contador1_Cadastrar, Contador2_Cadastrar, Contador3_Cadastrar: Inteiro;
+Quantia_Fruta, Codigo_Fruta: Vetor [1..1000] de Inteiro;
+Nome_Fruta, Descricao_Fruta: Vetor [1..1000] de Caractere;
+Contador4_Cadastrar_Balanco, Contador5_Cadastrar_Balanco: Inteiro;
+Contador4_Cadastrar, Contador5_Cadastrar: Inteiro;
+Confirmado_Nome_Fruta: Vetor [1..1000] de Caractere;
+// Alterar
+Opcao1_Alterar, Opcao2_Alterar: Inteiro;
+Contador1_Alterar, Contador2_Alterar, Contador3_Alterar, Contador4_Alterar: Inteiro;
+Confirmado_Opcao2_Alterar: Caractere;
+Contador5_Alterar_Balanco: Inteiro;
+// Excluir
+Opcao1_Excluir, Opcao2_Excluir: Inteiro;
+Contador1_Excluir, Contador2_Excluir, Contador4_Excluir, Contador5_Excluir,
+Contador6_Excluir, Contador7_Excluir: Inteiro;
+Confirmado_Opcao2_Excluir: Caractere;
+Contador4_Excluir_Balanco: Inteiro;
+Codigo_Fruta_Excluir, Quantia_Fruta_Excluir, Memoria_Quantia_Fruta: Vetor [1..1000] de
+Inteiro;
+Nome_Fruta_Excluir, Descricao_Fruta_Excluir: Vetor [1..1000] de Caractere;
+// Consultar
+Opcao1_Consultar, Opcao2_Consultar: Inteiro;
+Contador1_Consultar, Contador2_Consultar, Contador3_Consultar: Inteiro;
+Confirmado_Opcao2_Consultar, Tecle_Enter: Caractere;
+Contador4_Consultar_Balanco: Inteiro;
+// Vender
+Opcao1_Vendas, Opcao2_Vendas: Inteiro;
+Contador1_Vendas, Contador2_Vendas, Contador3_Vendas: Inteiro;
+Quantia1_Vendas: Inteiro;
+Confirmado_Opcao2_Vendas: Caracter;
+Contador4_Vendas_Balanco, Contador5_Vendas_Balanco: Inteiro;
+// Balanço
+Opcao1_Balanco: Inteiro;
+Contador1_Balanco, Contador2_Balanco: Inteiro;
+// Sair
+Contador1_Sair: Inteiro;
+Calculo30_Quantia_Fruta: Vetor [1..1000] de Real;
+Inicio
+// Um estrutura de repetição encapsula todo o projeto (Repita Até)
+Repita
+ Limpatela
+ // O Menu de Opções
+ Escreval ("*************************************")
+ Escreval ("** Mercearia de Frutas do Seu João **")
+ Escreval ("*************************************")
+ Escreval ("********* MENU DE OPÇÕES **********")
+ Escreval ("*************************************")
+ Escreval ("********** Cadastrar - 1 **********")
+ Escreval ("********** Alterar - 2 **********")
+ Escreval ("********** Excluir - 3 **********")
+ Escreval ("********** Consultar - 4 **********")
+ Escreval ("********** Vender - 5 **********")
+ Escreval ("********** Balanço - 6 **********")
+ Escreval ("********** Sair - 7 **********")
+ Escreval ("*************************************")
+ Escreval ("*** Digite o número de uma opção **")
+ Escreval ("*************************************")
+ Escreva ("*** Executar qual delas? ")
+ Leia (Opcao1_Menu)
+ Escolha (Opcao1_Menu) faca
+
+ // Galho I - Cadastrar
+ Caso 1
+ // Estrutura de Repetição - Cadastrar (Para manutenção da aplicação e de tratamento
+do submenu)
+ Repita
+ // Submenu I - Cadastrar
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("*** SUBMENU CADASTRAR ***")
+ Escreval ("***************************")
+ Escreval ("***** Cadastrar - 1 *****")
+ Escreval ("**** Menu Geral - 2 *****")
+ Escreval ("******* Sair - 3 ********")
+ Escreval ("***************************")
+ Escreva ("** Executar qual opção? ")
+ Leia (Opcao1_Cadastrar)
+ // Estrutura de Decisão Múltipla - Cadastrar
+ Escolha (Opcao1_Cadastrar) faca
+ Caso 1
+ // Estrutura de Repetição - Cadastrar (serve para tratamento da quantia -
+precisa ser maior de zero)
+ Repita
+ Escreva ("* Cadastrar quantas frutas? ")
+ Leia (Contador2_Cadastrar)
+ Ate (Contador2_Cadastrar > 0)
+ Escreval ("***************************")
+ // Estrutura de Repetição - Cadastrar (toda dinâmica para evitar sobreposição
+de cadastros)
+ Contador1_Cadastrar <- (Contador3_Cadastrar + 1)
+ Contador3_Cadastrar <- (Contador3_Cadastrar + Contador2_Cadastrar)
+ Para Contador1_Cadastrar de Contador1_Cadastrar ate (Contador3_Cadastrar)
+faca
+ // Temporizador + espere como IHC - Interação Humano-Computador
+ Escreval ("")
+ Timer (500)
+ Escreval ("Espere.")
+ Escreval ("Espere..")
+ Escreval ("Espere...")
+ Timer (0)
+ // O código do produto é gerado pelo algoritmo
+ Codigo_Fruta[Contador1_Cadastrar] <- (1000 + Contador1_Cadastrar)
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("**** Cadastrando... *****")
+ Escreval ("***************************")
+ Escreval ("** Código do cadastro:", Codigo_Fruta[Contador1_Cadastrar])
+ // Estrutura de Repetição (para checagem de cadastro repetido)
+ Repita
+ Escreva ("** Digite nome da fruta: ")
+ Leia (Confirmado_Nome_Fruta[Contador1_Cadastrar])
+ Contador5_Cadastrar <- 0
+ Contador4_Cadastrar <- 1
+ Para Contador4_Cadastrar de 1 ate Contador3_Cadastrar faca
+ Se (Confirmado_Nome_Fruta[Contador1_Cadastrar] =
+Nome_Fruta[Contador4_Cadastrar]) entao
+ Escreval ("** Cadastro Existente! **")
+ Escreval ("")
+ Senao
+ Se (Confirmado_Nome_Fruta[Contador1_Cadastrar] <>
+Nome_Fruta[Contador4_Cadastrar]) entao
+ Contador5_Cadastrar <- (Contador5_Cadastrar + 1)
+ Fimse
+ Fimse
+ Fimpara
+ Ate (Contador5_Cadastrar = Contador3_Cadastrar)
+ Nome_Fruta[Contador1_Cadastrar] <-
+(Confirmado_Nome_Fruta[Contador1_Cadastrar])
+ // Estrutura de Repetição - Cadastrar (serve para tratamento da quantia -
+precisa ser maior de zero)
+ Repita
+ Escreva ("** Digite a quantidade: ")
+ Leia (Quantia_Fruta[Contador1_Cadastrar])
+ Ate (Quantia_Fruta[Contador1_Cadastrar] > 0)
+ Escreva ("** Digite a descrição: ")
+ Leia (Descricao_Fruta[Contador1_Cadastrar])
+ Escreval ("***************************")
+ // Contadores para gerar dados para o Relatório de Balanço
+ Contador4_Cadastrar_Balanco <- (Contador4_Cadastrar_Balanco + 1)
+ FimPara
+ Escreval ("")
+ // Temporizador + espere como IHC - Interação Humano-Computador
+ Timer (1000)
+ Escreval ("Espere.")
+ Escreval ("Espere..")
+ Escreval ("Espere...")
+ Limpatela
+ Escreval ("***** Cadastro OK! *****")
+ Timer (0)
+ Caso 2
+ // Voltar Menu Geral - Cadastro
+ Limpatela
+ Interrompa
+ Caso 3
+ // Sair Programa - Cadastro
+ // Interação Humano-Computador (mensagem de saída)
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("******* OBRIGADO! *******")
+ Escreval ("***************************")
+ Escreval ("** Programa Finalizado **")
+ Escreval ("***************************")
+ // Estrutura de Repetição - Sair (Operação para encontrar produto abaixo de
+30%)
+ Contador1_Sair <- 1
+ Para Contador1_Sair de 1 ate Contador3_Cadastrar faca
+ // Estrutura de Decisão - Sair (Se o estoque atual for menor que o estoque
+original - Faz cálculo)
+ Se (Quantia_Fruta[Contador1_Sair] <
+Memoria_Quantia_Fruta[Contador1_Sair]) entao
+ // Regra de três para determinar estoque abaixo de 30%
+ Calculo30_Quantia_Fruta[Contador1_Sair] <-
+((Quantia_Fruta[Contador1_Sair] * 100) / Memoria_Quantia_Fruta[Contador1_Sair])
+ // Caso o estoque esteja abaixo de 30% - Então mensagem de estoque
+baixo
+ Se (Calculo30_Quantia_Fruta[Contador1_Sair] < 30) entao
+ Escreval ("")
+ Escreval ("***************************")
+ Escreval ("** Cógido: ", Codigo_Fruta[Contador1_Sair])
+ Escreval ("** Nome: ", Nome_Fruta[Contador1_Sair], " ** Quantia: ",
+Quantia_Fruta[Contador1_Sair])
+ Escreval ("** Estoque Abaixo de 30% ")
+ Escreval ("***************************")
+ Fimse
+ Fimse
+ Fimpara
+ Fimalgoritmo
+ FimEscolha
+ Ate (Opcao1_Cadastrar = 2)
+
+ // Galho II - Alterar
+ Caso 2
+ // Estrutura de Repetição - Alterar (Para manutenção da aplicação e de tratamento do
+submenu)
+ Repita
+ // Submenu I - Alterar
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("**** SUBMENU ALTERAR ****")
+ Escreval ("***************************")
+ Escreval ("****** Alterar - 1 ******")
+ Escreval ("**** Menu Geral - 2 *****")
+ Escreval ("******* Sair - 3 ********")
+ Escreval ("***************************")
+ Escreva ("**** Executar qual opção? ")
+ Leia (Opcao1_Alterar)
+ // Estrutura de Decisão Múltipla - Alterar
+ Escolha (Opcao1_Alterar) faca
+ Caso 1
+ // Estrutura de Repetição - Alterar (tratamento até operação ser concluída)
+ Repita
+ // Submenu II - Alterar
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("***** Alterando... ******")
+ Escreval ("***************************")
+ Contador1_Alterar <- 1
+ Para Contador1_Alterar de 1 ate Contador3_Cadastrar faca
+ Escreval ("Código: ", Codigo_Fruta[Contador1_Alterar])
+ Escreval ("Nome: ", Nome_Fruta[Contador1_Alterar])
+ Escreval ("Quantia: ", Quantia_Fruta[Contador1_Alterar])
+ Escreval ("Descrição: ", Descricao_Fruta[Contador1_Alterar])
+ Escreval ("***************************")
+ Fimpara
+ // Tratamento Opção2 - Alterar
+ Escreva ("**** Digite o código? ")
+ Leia (Opcao2_Alterar)
+ Contador2_Alterar <- 1
+ Contador3_Alterar <- 0
+ Para Contador2_Alterar de 1 ate Contador3_Cadastrar faca
+ Se (Opcao2_Alterar = Codigo_Fruta[Contador2_Alterar]) entao
+ Contador4_Alterar <- Contador2_Alterar
+ Confirmado_Opcao2_Alterar <- "VERDADEIRO"
+ Senao
+ Contador3_Alterar <- (Contador3_Alterar + 1)
+ Se (Contador3_Alterar = Contador3_Cadastrar) entao
+ Escreval ("")
+ Timer (1000)
+ Escreval ("**** Código Errado! *****")
+ Escreval ("")
+ Timer (0)
+ Confirmado_Opcao2_Alterar <- "FALSO"
+ Fimse
+ Fimse
+ Fimpara
+ Ate (Confirmado_Opcao2_Alterar = "VERDADEIRO")
+ // Alterando Cadastro
+ // Alterar Nome
+ Escreval ("")
+ Escreva ("** Novo nome do cadastro? ")
+ Leia (Nome_Fruta[Contador4_Alterar])
+ // Alterar Quantia + Tratamento (para evitar quantias negativas)
+ Repita
+ Escreva ("** Nova quantidade: ")
+ Leia (Quantia_Fruta[Contador4_Alterar])
+ Ate (Quantia_Fruta[Contador4_Alterar] > 0)
+ // Alterar Descrição
+ Escreva ("** Nova descrição: ")
+ Leia (Descricao_Fruta[Contador4_Alterar])
+ // Temporizador + Confirmação de Alteração como IHC - Interação HumanoComputador
+ Escreval ("")
+ Timer (1000)
+ Escreval ("Espere.")
+ Escreval ("Espere..")
+ Escreval ("Espere...")
+ Limpatela
+ Escreval ("***** Alteração OK! *****")
+ Escreval ("Código: ", Codigo_Fruta[Contador4_Alterar])
+ Escreval ("Nome: ", Nome_Fruta[Contador4_Alterar])
+ Escreval ("Quantia: ", Quantia_Fruta[Contador4_Alterar])
+ Escreval ("Descrição: ", Descricao_Fruta[Contador4_Alterar])
+ Escreval ("***************************")
+ Timer (0)
+ // Contador para gerar dados para o Relatório de Balanço
+ Contador5_Alterar_Balanco <- (Contador5_Alterar_Balanco + 1)
+ Caso 2
+ // Voltar Menu Geral - Alterar
+ Limpatela
+ Interrompa
+ Caso 3
+ // Sair Programa - Alterar
+ // Interação Humano-Computador (mensagem de saída)
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("******* OBRIGADO! *******")
+ Escreval ("***************************")
+ Escreval ("** Programa Finalizado **")
+ Escreval ("***************************")
+ // Estrutura de Repetição - Sair (Operação para encontrar produto abaixo de
+30%)
+ Contador1_Sair <- 1
+ Para Contador1_Sair de 1 ate Contador3_Cadastrar faca
+ // Estrutura de Decisão - Sair (Se o estoque atual for menor que o estoque
+original - Faz cálculo)
+ Se (Quantia_Fruta[Contador1_Sair] <
+Memoria_Quantia_Fruta[Contador1_Sair]) entao
+ // Regra de três para determinar estoque abaixo de 30%
+ Calculo30_Quantia_Fruta[Contador1_Sair] <-
+((Quantia_Fruta[Contador1_Sair] * 100) / Memoria_Quantia_Fruta[Contador1_Sair])
+ // Caso o estoque esteja abaixo de 30% - Então mensagem de estoque
+baixo
+ Se (Calculo30_Quantia_Fruta[Contador1_Sair] < 30) entao
+ Escreval ("")
+ Escreval ("***************************")
+ Escreval ("** Cógido: ", Codigo_Fruta[Contador1_Sair])
+ Escreval ("** Nome: ", Nome_Fruta[Contador1_Sair], " ** Quantia: ",
+Quantia_Fruta[Contador1_Sair])
+ Escreval ("** Estoque Abaixo de 30% ")
+ Escreval ("***************************")
+ Fimse
+ Fimse
+ Fimpara
+ Fimalgoritmo
+ Fimescolha
+ Ate (Opcao1_Alterar = 2)
+ // Galho III - Excluir
+ Caso 3
+ // Estrutura de Repetição - Consultar (Para manutenção da aplicação e de tratamento
+do submenu)
+ Repita
+ // Submenu I - Excluir
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("**** SUBMENU EXCLUIR ****")
+ Escreval ("***************************")
+ Escreval ("****** Excluir - 1 ******")
+ Escreval ("**** Menu Geral - 2 *****")
+ Escreval ("******* Sair - 3 ********")
+ Escreval ("***************************")
+ Escreva ("**** Executar qual opção? ")
+ Leia (Opcao1_Excluir)
+ // Estrutura de Decisão Múltipla - Excluir
+ Escolha (Opcao1_Excluir) faca
+ Caso 1
+ // Estrutura de Repetição - Excluir (Repete até validar a existência do código)
+ Repita
+ // Submenu II - Excluir
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("***** Excluindo... ******")
+ Escreval ("***************************")
+ Escreval ("*** Frutas no Estoque ***")
+ Escreval ("***************************")
+ // Estrutura de Repetição (mostra opções de cadastros para exclusão)
+ Contador1_Excluir <- 1
+ Para Contador1_Excluir de 1 ate Contador3_Cadastrar faca
+ Escreval ("** ", Codigo_Fruta[Contador1_Excluir], " ** ",
+Nome_Fruta[Contador1_Excluir])
+ Fimpara
+ Escreval ("***************************")
+ Escreva ("** Digite o código: ")
+ Leia (Opcao2_Excluir)
+ // Estrutura de Repetição com Decisão e Interação Humano-Computador
+(Serve para validar o código a ser excluído e dar ao usuário a impressão de processamento)
+ Contador5_Excluir <- 1
+ Contador6_Excluir <- 0
+ Para Contador5_Excluir de 1 ate Contador3_Cadastrar faca
+ Se (Opcao2_Excluir = Codigo_Fruta[Contador5_Excluir]) entao
+ Escreval ("")
+ Timer (1000)
+ Escreval ("Espere.")
+ Escreval ("Espere..")
+ Escreval ("Espere...")
+ Limpatela
+ Escreval ("****** Código OK! *******")
+ Timer (0)
+ Confirmado_Opcao2_Excluir <- ("VERDADEIRO")
+ Senao
+ Contador6_Excluir <- (Contador6_Excluir + 1)
+ Se (Contador6_Excluir = Contador3_Cadastrar) entao
+ Escreval ("")
+ Timer (1000)
+ Escreval ("Espere.")
+ Escreval ("Espere..")
+ Escreval ("Espere...")
+ Limpatela
+ Escreval ("**** Código Errado! *****")
+ Timer (0)
+ Confirmado_Opcao2_Excluir <- ("FALSO")
+ Fimse
+ Fimse
+ Fimpara
+ Ate (Confirmado_Opcao2_Excluir = "VERDADEIRO")
+ // Estrutura de Repetição - Excluir (processo de exclusão)
+ Contador2_Excluir <- 1
+ Contador4_Excluir <- 0
+ Para Contador2_Excluir de 1 ate Contador3_Cadastrar faca
+ Se (Opcao2_Excluir <> Codigo_Fruta[Contador2_Excluir]) entao
+ // Operação de Exclusão - Parte I (consiste em reposicionar informações e
+enganar o contador - lógica da fila)
+ Contador4_Excluir <- (Contador4_Excluir + 1)
+ Nome_Fruta_Excluir[Contador4_Excluir] <-
+(Nome_Fruta[Contador2_Excluir])
+ Quantia_Fruta_Excluir[Contador4_Excluir] <-
+(Quantia_Fruta[Contador2_Excluir])
+ Descricao_Fruta_Excluir[Contador4_Excluir] <-
+(Descricao_Fruta[Contador2_Excluir])
+ Fimse
+ Fimpara
+ // Operação de Exclusão - Parte II (devolve os produtos para a prateleira de
+origem - conforme fila)
+ Contador7_Excluir <- 1
+ Contador3_Cadastrar <- (Contador3_Cadastrar - 1)
+ Para Contador7_Excluir de 1 ate Contador3_Cadastrar faca
+ Nome_Fruta[Contador7_Excluir] <-
+(Nome_Fruta_Excluir[Contador7_Excluir])
+ Quantia_Fruta[Contador7_Excluir] <-
+(Quantia_Fruta_Excluir[Contador7_Excluir])
+ Descricao_Fruta[Contador7_Excluir] <-
+(Descricao_Fruta_Excluir[Contador7_Excluir])
+ Fimpara
+ // Interação Humano-Computador (feedback para o usuário)
+ Escreval ("")
+ Timer (1000)
+ Escreval ("Espere.")
+ Escreval ("Espere..")
+ Escreval ("Espere...")
+ Limpatela
+ Escreval ("** Cadastro Excluído! ***")
+ Contador4_Excluir_Balanco <- (Contador4_Excluir_Balanco + 1)
+ Timer (0)
+ Caso 2
+ // Voltar Menu Geral - Excluir
+ Limpatela
+ Interrompa
+ Caso 3
+ // Sair Programa - Excluir
+ // Interação Humano-Computador (mensagem de saída)
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("******* OBRIGADO! *******")
+ Escreval ("***************************")
+ Escreval ("** Programa Finalizado **")
+ Escreval ("***************************")
+ // Estrutura de Repetição - Sair (Operação para encontrar produto abaixo de
+30%)
+ Contador1_Sair <- 1
+ Para Contador1_Sair de 1 ate Contador3_Cadastrar faca
+ // Estrutura de Decisão - Sair (Se o estoque atual for menor que o estoque
+original - Faz cálculo)
+ Se (Quantia_Fruta[Contador1_Sair] <
+Memoria_Quantia_Fruta[Contador1_Sair]) entao
+ // Regra de três para determinar estoque abaixo de 30%
+ Calculo30_Quantia_Fruta[Contador1_Sair] <-
+((Quantia_Fruta[Contador1_Sair] * 100) / Memoria_Quantia_Fruta[Contador1_Sair])
+ // Caso o estoque esteja abaixo de 30% - Então mensagem de estoque
+baixo
+ Se (Calculo30_Quantia_Fruta[Contador1_Sair] < 30) entao
+ Escreval ("")
+ Escreval ("***************************")
+ Escreval ("** Cógido: ", Codigo_Fruta[Contador1_Sair])
+ Escreval ("** Nome: ", Nome_Fruta[Contador1_Sair], " ** Quantia: ",
+Quantia_Fruta[Contador1_Sair])
+ Escreval ("** Estoque Abaixo de 30% ")
+ Escreval ("***************************")
+ Fimse
+ Fimse
+ Fimpara
+ Fimalgoritmo
+ Fimescolha
+ Ate (Opcao1_Excluir = 2)
+ // Galho IV - Consultar
+ Caso 4
+ // Estrutura de Repetição - Consultar (Para manutenção da aplicação e de tratamento
+do submenu)
+ Repita
+ // Submenu I - Consultar
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("*** SUBMENU CONSULTAR ***")
+ Escreval ("***************************")
+ Escreval ("***** Consultar - 1 *****")
+ Escreval ("**** Menu Geral - 2 *****")
+ Escreval ("******* Sair - 3 ********")
+ Escreval ("***************************")
+ Escreva ("**** Executar qual opção? ")
+ Leia (Opcao1_Consultar)
+ // Estrutura de Decisão Múltipla - Consultar
+ Escolha (Opcao1_Consultar) faca
+ Caso 1
+ // Estrutura de Repetição - Consultar (tratamento até operação ser concluída)
+ Repita
+ // Submenu II - Consultar
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("**** Consultando... *****")
+ Escreval ("***************************")
+ Escreval ("*** Frutas no Estoque ***")
+ Escreval ("***************************")
+ // Estrutura de Repetição (mostra opções de cadastros para alteração)
+ Contador1_Consultar <- 1
+ Para Contador1_Consultar de 1 ate Contador3_Cadastrar faca
+ Escreval ("** ", Codigo_Fruta[Contador1_Consultar], " ** ",
+Nome_Fruta[Contador1_Consultar])
+ Fimpara
+ Escreval ("***************************")
+ Escreva ("** Digite o código: ")
+ Leia (Opcao2_Consultar)
+ // Estrutura de Tratamento do Código do Produto
+ Contador2_Consultar <- 1
+ Contador3_Consultar <- 0
+ Para Contador2_Consultar de 1 ate Contador3_Cadastrar faca
+ Se (Opcao2_Consultar = Codigo_Fruta[Contador2_Consultar]) entao
+ // Temporizador + Confirmação de Consulta como IHC - Interação
+Humano-Computador
+ Limpatela
+ Timer (500)
+ Escreval ("***************************")
+ Escreval ("** Cadastro Consultado **")
+ Escreval ("** Código: ", Codigo_Fruta[Contador2_Consultar])
+ Escreval ("** Nome: ", Nome_Fruta[Contador2_Consultar])
+ Escreval ("** Quantidade: ", Quantia_Fruta[Contador2_Consultar])
+ Escreval ("** Descrição: ", Descricao_Fruta[Contador2_Consultar])
+ Escreval ("***************************")
+ Timer (0)
+ Escreval ("")
+ // Usuário - Aguardando comando para continuar
+ Escreva ("Tecle Enter para continuar: ")
+ Leia (Tecle_Enter)
+ Confirmado_Opcao2_Consultar <- "VERDADEIRO"
+ // Contador para gerar dados para o Relatório de Balanço
+ Contador4_Consultar_Balanco <- (Contador4_Consultar_Balanco + 1)
+ Senao
+ Contador3_Consultar <- (Contador3_Consultar + 1)
+ Se (Contador3_Consultar = Contador3_Cadastrar) entao
+ Escreval ("")
+ Timer (1000)
+ Escreval ("**** Código Errado! *****")
+ Escreval ("")
+ Timer (0)
+ Confirmado_Opcao2_Consultar <- "FALSO"
+ Fimse
+ Fimse
+ Fimpara
+ Ate (Confirmado_Opcao2_Consultar = "VERDADEIRO")
+ Caso 2
+ // Voltar Menu Geral - Consultar
+ Limpatela
+ Interrompa
+ Caso 3
+ // Sair Programa - Consultar
+ // Interação Humano-Computador (mensagem de saída)
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("******* OBRIGADO! *******")
+ Escreval ("***************************")
+ Escreval ("** Programa Finalizado **")
+ Escreval ("***************************")
+ // Estrutura de Repetição - Sair (Operação para encontrar produto abaixo de
+30%)
+ Contador1_Sair <- 1
+ Para Contador1_Sair de 1 ate Contador3_Cadastrar faca
+ // Estrutura de Decisão - Sair (Se o estoque atual for menor que o estoque
+original - Faz cálculo)
+ Se (Quantia_Fruta[Contador1_Sair] <
+Memoria_Quantia_Fruta[Contador1_Sair]) entao
+ // Regra de três para determinar estoque abaixo de 30%
+ Calculo30_Quantia_Fruta[Contador1_Sair] <-
+((Quantia_Fruta[Contador1_Sair] * 100) / Memoria_Quantia_Fruta[Contador1_Sair])
+ // Caso o estoque esteja abaixo de 30% - Então mensagem de estoque
+baixo
+ Se (Calculo30_Quantia_Fruta[Contador1_Sair] < 30) entao
+ Escreval ("")
+ Escreval ("***************************")
+ Escreval ("** Cógido: ", Codigo_Fruta[Contador1_Sair])
+ Escreval ("** Nome: ", Nome_Fruta[Contador1_Sair], " ** Quantia: ",
+Quantia_Fruta[Contador1_Sair])
+ Escreval ("** Estoque Abaixo de 30% ")
+ Escreval ("***************************")
+ Fimse
+ Fimse
+ Fimpara
+ Fimalgoritmo
+ Fimescolha
+ Ate (Opcao1_Consultar = 2)
+ // Galho V - Vender
+ Caso 5
+ // Estrutura de Repetição - Vender (Para manutenção da aplicação e de tratamento
+do submenu)
+ Repita
+ // Submenu I - Vendas
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("**** SUBMENU VENDAS *****")
+ Escreval ("***************************")
+ Escreval ("****** Vender - 1 *******")
+ Escreval ("**** Menu Geral - 2 *****")
+ Escreval ("******* Sair - 3 ********")
+ Escreval ("***************************")
+ Escreva ("**** Executar qual opção? ")
+ Leia (Opcao1_Vendas)
+ // Estrutura de Decisão Múltipla - Consultar
+ Escolha (Opcao1_Vendas) faca
+ Caso 1
+ // Estrutura de Repetição - Vender (tratamento até operação ser concluída)
+ Repita
+ // Submenu II - Vendas
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("****** Vendendo... ******")
+ Escreval ("***************************")
+ Escreval ("*** Frutas no Estoque ***")
+ Escreval ("***************************")
+ Escreval ("* Código * Nome * Quantia *")
+ // Estrutura de Repetição - Vender (apresentação dos produtos à venda)
+ Contador1_Vendas <- 1
+ Para Contador1_Vendas de 1 ate Contador3_Cadastrar faca
+ Escreval ("*", Codigo_Fruta[Contador1_Vendas], " ** ",
+Nome_Fruta[Contador1_Vendas], " ** ", Quantia_Fruta[Contador1_Vendas])
+ Escreval ("* Descrição: ", Descricao_Fruta[Contador1_Vendas])
+ Escreval ("***************************")
+ Fimpara
+ Escreva ("* Digite o código da fruta? ")
+ Leia (Opcao2_Vendas)
+ // Estrutura de Repetição - Vender (para checagem do código junto ao
+estoque e validação da venda)
+ Contador2_Vendas <- 1
+ Contador3_Vendas <- 0
+ Para Contador2_Vendas de 1 ate Contador3_Cadastrar faca
+ Se (Opcao2_Vendas = Codigo_Fruta[Contador2_Vendas]) entao
+ Repita
+ Escreva ("* Digite quantia comprada? ")
+ Leia (Quantia1_Vendas)
+ Ate (Quantia1_Vendas > 0) e (Quantia1_Vendas <=
+Quantia_Fruta[Contador2_Vendas])
+ Escreval ("***************************")
+ Escreval ("")
+ // Interação Humana-Computador (temporizador e confirmação de
+venda para interação com usuário)
+ Timer (1000)
+ Escreval ("******* Venda Ok! *******")
+ Timer (0)
+ Escreval ("")
+ // Vetor para memorizar o estoque original - assim comparar com o
+estoque atual e descobrir a queda de 30%
+ Memoria_Quantia_Fruta[Contador2_Vendas] <-
+Quantia_Fruta[Contador2_Vendas]
+ // Cálculo para redução de estoque - Define o estoque atual
+ Quantia_Fruta[Contador2_Vendas] <-
+(Quantia_Fruta[Contador2_Vendas] - Quantia1_Vendas)
+ Confirmado_Opcao2_Vendas <- "VERDADEIRO"
+ // Contador para gerar dados para o Relatório de Balanço
+ Contador4_Vendas_Balanco <- (Contador4_Vendas_Balanco + 1)
+ Contador5_Vendas_Balanco <- (Contador5_Vendas_Balanco +
+Quantia1_Vendas)
+ Senao
+ Contador3_Vendas <- (Contador3_Vendas + 1)
+ Se (Contador3_Vendas = Contador3_Cadastrar) entao
+ Escreval ("")
+ // Interação Humana-Computador (temporizador e aviso de venda
+inválida para interação com usuário)
+ Timer (1000)
+ Escreval ("**** Código Errado! *****")
+ Timer (0)
+ Escreval ("")
+ Confirmado_Opcao2_Vendas <- "FALSO"
+ Fimse
+ Fimse
+ Fimpara
+ Ate (Confirmado_Opcao2_Vendas = "VERDADEIRO")
+ Caso 2
+ // Voltar Menu Geral - Vendas
+ Limpatela
+ Interrompa
+ Caso 3
+ // Sair Programa - Vendas
+ // Interação Humano-Computador (mensagem de saída)
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("******* OBRIGADO! *******")
+ Escreval ("***************************")
+ Escreval ("** Programa Finalizado **")
+ Escreval ("***************************")
+ // Estrutura de Repetição - Sair (Operação para encontrar produto abaixo de
+30%)
+ Contador1_Sair <- 1
+ Para Contador1_Sair de 1 ate Contador3_Cadastrar faca
+ // Estrutura de Decisão - Sair (Se o estoque atual for menor que o estoque
+original - Faz cálculo)
+ Se (Quantia_Fruta[Contador1_Sair] <
+Memoria_Quantia_Fruta[Contador1_Sair]) entao
+ // Regra de três para determinar estoque abaixo de 30%
+ Calculo30_Quantia_Fruta[Contador1_Sair] <-
+((Quantia_Fruta[Contador1_Sair] * 100) / Memoria_Quantia_Fruta[Contador1_Sair])
+ // Caso o estoque esteja abaixo de 30% - Então mensagem de estoque
+baixo
+ Se (Calculo30_Quantia_Fruta[Contador1_Sair] < 30) entao
+ Escreval ("")
+ Escreval ("***************************")
+ Escreval ("** Cógido: ", Codigo_Fruta[Contador1_Sair])
+ Escreval ("** Nome: ", Nome_Fruta[Contador1_Sair], " ** Quantia: ",
+Quantia_Fruta[Contador1_Sair])
+ Escreval ("** Estoque Abaixo de 30% ")
+ Escreval ("***************************")
+ Fimse
+ Fimse
+ Fimpara
+ Fimalgoritmo
+ Fimescolha
+ Ate (Opcao1_Vendas = 2)
+ // Galho VI - Balanço
+ Caso 6
+ // Estrutura de Repetição - Balanço (Operação para calcular estoque)
+ Contador1_Balanco <- 1
+ Contador5_Cadastrar_Balanco <- 0
+ Para Contador1_Balanco de 1 ate Contador3_Cadastrar faca
+ Contador5_Cadastrar_Balanco <- (Contador5_Cadastrar_Balanco +
+Quantia_Fruta[Contador1_Balanco])
+ Fimpara
+ // Cálculo de Cadastros Existentes (Feitos - Excluídos)
+ Contador4_Cadastrar_Balanco <- (Contador4_Cadastrar_Balanco -
+Contador4_Excluir_Balanco)
+ // Estrutura de Repetição - Vender (Para manutenção da aplicação e de tratamento
+do submenu)
+ Repita
+ // Submenu I - Balanço
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("**** SUBMENU BALANÇO ****")
+ Escreval ("***************************")
+ Escreval ("* Balanço Resumido - 0 **")
+ Escreval ("* Balanço Completo - 1 **")
+ Escreval ("**** Menu Geral - 2 *****")
+ Escreval ("******* Sair - 3 ********")
+ Escreval ("***************************")
+ Escreva ("**** Executar qual opção? ")
+ Leia (Opcao1_Balanco)
+ // Estrutura de Decisão Múltipla - Balanço
+ Escolha (Opcao1_Balanco) faca
+ Caso 0
+ Limpatela
+ Escreval ("********************************")
+ Escreval ("***** RELATÓRIO RESUMIDO *****")
+ Escreval ("********************************")
+ Escreval ("** Cadastros: ", Contador4_Cadastrar_Balanco)
+ Escreval ("** Produtos Estocados: ", Contador5_Cadastrar_Balanco)
+ Escreval ("********************************")
+ Escreval ("** Alterações: ", Contador5_Alterar_Balanco)
+ Escreval ("** Exclusões: ", Contador4_Excluir_Balanco)
+ Escreval ("** Consultas: ", Contador4_Consultar_Balanco)
+ Escreval ("********************************")
+ Escreval ("** Vendas: ", Contador4_Vendas_Balanco)
+ Escreval ("** Produtos Comercializados: ", Contador5_Vendas_Balanco)
+ Escreval ("********************************")
+ Escreval ("")
+ Escreva ("Tecle Enter para continuar: ")
+ Leia (Tecle_Enter)
+ Caso 1
+ Limpatela
+ Escreval ("************************************************")
+ Escreval ("************************************************")
+ Escreval ("************* RELATÓRIO COMPLETO *************")
+ Escreval ("************************************************")
+ Escreval ("************************************************")
+ Escreval ("** Cadastros: ", Contador4_Cadastrar_Balanco)
+ Escreval ("** Produtos Estocados: ", Contador5_Cadastrar_Balanco)
+ Escreval ("************************************************")
+ Escreval ("** Alterações: ", Contador5_Alterar_Balanco)
+ Escreval ("** Exclusões: ", Contador4_Excluir_Balanco)
+ Escreval ("** Consultas: ", Contador4_Consultar_Balanco)
+ Escreval ("************************************************")
+ Escreval ("** Vendas: ", Contador4_Vendas_Balanco)
+ Escreval ("** Produtos Comercializados: ", Contador5_Vendas_Balanco)
+ Escreval ("************************************************")
+ Escreval ("************************************************")
+ Escreval ("******************* ESTOQUE ******************")
+ Escreval ("************************************************")
+ Escreval ("************************************************")
+ Contador2_Balanco <- 1
+ Para Contador2_Balanco de 1 ate Contador3_Cadastrar faca
+ Escreval ("** Código: ", Codigo_Fruta[Contador2_Balanco])
+ Escreval ("** Nome: ", Nome_Fruta[Contador2_Balanco])
+ Escreval ("** Quantia: ", Quantia_Fruta[Contador2_Balanco])
+ Escreval ("** Descrição: ", Descricao_Fruta[Contador2_Balanco])
+ Escreval ("************************************************")
+ Fimpara
+ Escreval ("")
+ Timer (500)
+ Escreva ("Tecle Enter para continuar: ")
+ Leia (Tecle_Enter)
+ Timer (0)
+ Caso 2
+ // Voltar Menu Geral - Balanço
+ Limpatela
+ Interrompa
+ Caso 3
+ // Sair Programa - Balanço
+ // Interação Humano-Computador (mensagem de saída)
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("******* OBRIGADO! *******")
+ Escreval ("***************************")
+ Escreval ("** Programa Finalizado **")
+ Escreval ("***************************")
+ // Estrutura de Repetição - Sair (Operação para encontrar produto abaixo de
+30%)
+ Contador1_Sair <- 1
+ Para Contador1_Sair de 1 ate Contador3_Cadastrar faca
+ // Estrutura de Decisão - Sair (Se o estoque atual for menor que o estoque
+original - Faz cálculo)
+ Se (Quantia_Fruta[Contador1_Sair] <
+Memoria_Quantia_Fruta[Contador1_Sair]) entao
+ // Regra de três para determinar estoque abaixo de 30%
+ Calculo30_Quantia_Fruta[Contador1_Sair] <-
+((Quantia_Fruta[Contador1_Sair] * 100) / Memoria_Quantia_Fruta[Contador1_Sair])
+ // Caso o estoque esteja abaixo de 30% - Então mensagem de estoque
+baixo
+ Se (Calculo30_Quantia_Fruta[Contador1_Sair] < 30) entao
+ Escreval ("")
+ Escreval ("***************************")
+ Escreval ("** Cógido: ", Codigo_Fruta[Contador1_Sair])
+ Escreval ("** Nome: ", Nome_Fruta[Contador1_Sair], " ** Quantia: ",
+Quantia_Fruta[Contador1_Sair])
+ Escreval ("** Estoque Abaixo de 30% ")
+ Escreval ("***************************")
+ Fimse
+ Fimse
+ Fimpara
+ Fimalgoritmo
+ Fimescolha
+ Ate (Opcao1_Balanco = 2)
+
+ // Galho VII - Sair
+ Caso 7
+ // Interação Humano-Computador (mensagem de saída)
+ Limpatela
+ Escreval ("***************************")
+ Escreval ("******* OBRIGADO! *******")
+ Escreval ("***************************")
+ Escreval ("** Programa Finalizado **")
+ Escreval ("***************************")
+ // Estrutura de Repetição - Sair (Operação para encontrar produto abaixo de 30%)
+ Contador1_Sair <- 1
+ Para Contador1_Sair de 1 ate Contador3_Cadastrar faca
+ // Estrutura de Decisão - Sair (Se o estoque atual for menor que o estoque original -
+Faz cálculo)
+ Se (Quantia_Fruta[Contador1_Sair] < Memoria_Quantia_Fruta[Contador1_Sair])
+entao
+ // Regra de três para determinar estoque abaixo de 30%
+ Calculo30_Quantia_Fruta[Contador1_Sair] <- ((Quantia_Fruta[Contador1_Sair] *
+100) / Memoria_Quantia_Fruta[Contador1_Sair])
+ // Caso o estoque esteja abaixo de 30% - Então mensagem de estoque baixo
+ Se (Calculo30_Quantia_Fruta[Contador1_Sair] < 30) entao
+ Escreval ("")
+ Escreval ("***************************")
+ Escreval ("** Cógido: ", Codigo_Fruta[Contador1_Sair])
+ Escreval ("** Nome: ", Nome_Fruta[Contador1_Sair], " ** Quantia: ",
+Quantia_Fruta[Contador1_Sair])
+ Escreval ("** Estoque Abaixo de 30% ")
+ Escreval ("***************************")
+ Fimse
+ Fimse
+ Fimpara
+ FimEscolha
+Ate (Opcao1_Menu = 7)
+Fimalgoritmo

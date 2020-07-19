@@ -1,0 +1,20 @@
+Algoritmo "semnome"
+// Programa que lê cinco números e multiplica os pares por 5 e soma os ímpares com 5
+// Faz uso de uma única variável
+Var
+BDados: vetor [1..3,1..5] de inteiro;
+Inicio
+Para BDados[3,1] de 1 ate 5 faca
+   Escreva ("Digite o valor da linha 1 e coluna", BDados[3,1], "da matriz:")
+   Leia (BDados[1,BDados[3,1]])
+   BDados[2,BDados[3,1]] <- (BDados[1,BDados[3,1]] % 2)
+   Se (BDados[2,BDados[3,1]] = 0) entao
+      BDados[2,BDados[3,1]] <- (BDados[1,BDados[3,1]] * 5)
+   Senao
+      BDados[2,BDados[3,1]] <- (BDados[1,BDados[3,1]] + 5)
+   Fimse
+Fimpara
+Para BDados[3,1] de 1 ate 5 faca
+   Escreval ("Os resultados são:", BDados[2,BDados[3,1]])
+Fimpara
+Fimalgoritmo

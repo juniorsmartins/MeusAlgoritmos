@@ -1,0 +1,22 @@
+Algoritmo "semnome"
+
+Var
+// linha 4 para contador
+// linha 5 para resultado da soma
+BD: vetor [1..5,1..5] de Inteiro;
+Inicio
+Para BD[4,1] de 1 ate 3 faca
+   Para BD[4,2] de 1 ate 3 faca
+      Escreval ("Digite os valores?")
+      Leia (BD[BD[4,1],BD[4,2]])
+   Fimpara
+fimpara
+Para BD[4,3] de 1 ate 3 faca
+   Para BD[4,4] de 1 ate 3 faca
+      BD[5,BD[4,3]] <- (BD[5,BD[4,3]] + BD[BD[4,4],BD[4,3]])
+   Fimpara
+Fimpara
+Para BD[4,5] de 1 ate 3 faca
+Escreval (BD[5,BD[4,5]])
+Fimpara
+Fimalgoritmo
