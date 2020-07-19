@@ -1,0 +1,39 @@
+Algoritmo "Lista de Exercícios 3 - Atividade II"
+// Disciplina:  Algoritmos
+// Descrição: Ler 5 números inteiros e imprimir a soma dos positivos e mostrar quantos números negativos foram digitados
+// Autor(a): Junior Martins
+// Data atual: 18/05/2020
+
+Var
+// Seção de Declarações
+Contador, NumSoma, NumNeg: inteiro
+Num: vetor [1..5] de inteiro
+
+Inicio
+// Seção de Comandos
+
+// Entrada dos números
+Contador <- 1
+Para Contador de 1 ate 5 passo 1 faca
+     Escreva ("Digite o número", Contador, ":")
+     Leia (Num[Contador])
+Fimpara
+
+// Soma números positivos
+Para Contador de 1 ate 5 passo 1 faca
+     Se (Num[Contador] >= 0) entao
+        NumSoma <- (NumSoma + Num[Contador])
+     Fimse
+Fimpara
+
+// Identifica quantia de números negativos
+Para Contador de 1 ate 5 passo 1 faca
+     Se (Num[Contador] < 0) entao
+        NumNeg <- NumNeg + 1
+     Fimse
+Fimpara
+
+Escreval ("A soma dos números positivos é:", NumSoma)
+Escreva ("Foram digitados", NumNeg, " números negativos")
+
+Fimalgoritmo

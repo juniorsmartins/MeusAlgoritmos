@@ -1,0 +1,49 @@
+Algoritmo "Lista de Exercícios 3 - Atividade I"
+// Disciplina:  Algoritmos
+// Descrição: Ler 5 números inteiros e apontar os dois maiores
+// Autor(a): Junior Martins
+// Data atual: 18/05/2020
+
+Var
+// Seção de Declarações
+Contador, NumMaior, NumSeg: inteiro
+Num: vetor [1..5] de inteiro
+
+Inicio
+// Seção de Comandos
+Contador <- 1
+
+// Entrada dos números a serem calculados
+Para Contador de 1 ate 5 passo 1 faca
+   Escreva ("Digite o número", Contador, ":")
+   Leia (Num[Contador])
+Fimpara
+
+// Identificação do maior número
+Se (Num[1] > Num[2]) entao
+   NumMaior <- Num[1]
+   NumSeg <- Num[2]
+Senao
+   NumMaior <- Num[2]
+   NumSeg <- Num[1]
+Fimse
+
+Contador <- 3
+Para Contador de 3 ate 5 passo 1 faca
+     Se (Num[Contador] > NumMaior) entao
+        NumMaior <- Num[Contador]
+     Fimse
+Fimpara
+
+// Identificação do segundo maior número
+Contador <- 1
+Para Contador de 1 ate 5 passo 1 faca
+     Se (Num[Contador] < NumMaior) e (Num[Contador] > NumSeg) entao
+        NumSeg <- Num[Contador]
+     Fimse
+Fimpara
+
+// Apresentação dos resultados
+Escreval ("O maior número é:", NumMaior)
+Escreva ("O segundo maior número é:", NumSeg)
+Fimalgoritmo

@@ -1,0 +1,43 @@
+Algoritmo "semnome"
+// Descrição: Treino de Matriz - Definir maior e menor número
+// Autor(a): Junior Martins
+// Data atual: 19/05/2020
+Var
+// Seção de Declarações das variáveis
+Contador, NumMaior, NumMenor: inteiro
+Vet: vetor [1..5] de inteiro
+
+Inicio
+// Entrada dos números
+Para Contador de 1 ate 5 passo 1 faca
+     Escreva ("Digite o número", Contador,":")
+     Leia (Vet[Contador])
+Fimpara
+
+// Definição do maior
+Se (Vet[1] >= Vet[2]) entao
+   NumMaior <- Vet[1]
+   NumMenor <- Vet[2]
+Senao
+   NumMaior <- Vet[2]
+   NumMenor <- Vet[1]
+Fimse
+
+Contador <- 3
+Para Contador de 3 ate 5 passo 1 faca
+     Se (Vet[Contador] > NumMaior) entao
+        NumMaior <- Vet[Contador]
+     Fimse
+Fimpara
+
+// Definição do segundo maior
+Contador <- 1
+Para Contador de 1 ate 5 passo 1 faca
+     Se (Vet[Contador] < NumMaior) e (Vet[Contador] > NumMenor) entao
+        NumMenor <- Vet[Contador]
+     Fimse
+Fimpara
+Escreval ("O maior número é:", NumMaior)
+Escreval ("O segundo maior número é:", NumMenor)
+
+Fimalgoritmo
